@@ -5,10 +5,8 @@ from diffusers import StableDiffusionPipeline
 
 #device = "cuda" if torch.cuda.is_available() else "cpu"
 #torch_dtype = torch.float16 if device == "cuda" else torch.float32
-
-model_id = "runwayml/stable-diffusion-v1-5"
+model_id = "prompthero/openjourney"
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
-#pipe = pipe.to(device)
 
 st.title("Stable Diffusion App")
 # define the layout of your app
