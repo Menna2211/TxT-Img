@@ -3,12 +3,12 @@ import torch
 import time
 from diffusers import StableDiffusionPipeline
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
-torch_dtype = torch.float16 if device == "cuda" else torch.float32
-
+#device = "cuda" if torch.cuda.is_available() else "cpu"
+#torch_dtype = torch.float16 if device == "cuda" else torch.float32
+#torch_dtype=torch_dtype
 model_id = "runwayml/stable-diffusion-v1-5"
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch_dtype)
-pipe = pipe.to(device)
+pipe = StableDiffusionPipeline.from_pretrained(model_id)
+#pipe = pipe.to(device)
 
 st.title("Stable Diffusion App")
 # define the layout of your app
