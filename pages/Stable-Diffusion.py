@@ -37,7 +37,7 @@ elif models == "Select a Model" and  submit_buttons :
 
 # Display the generated text
 
-if models == "Hugging-Face":
+if models == "Hugging-Face" and  submit_buttons:
   progress_text = "Operation in progress. Please wait."
   bar = st.progress(0, text=progress_text)
   for percent_complete in range(100):
@@ -52,7 +52,7 @@ if models == "Hugging-Face":
   st.success('Congratulations task is done ', icon="✅")
   st.balloons()
 
-elif models == "Github":
+elif models == "Github" and  submit_buttons:
   progress_text = "Operation in progress. Please wait."
   bar = st.progress(0, text=progress_text)
   for percent_complete in range(100):
