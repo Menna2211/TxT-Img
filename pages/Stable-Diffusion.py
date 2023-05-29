@@ -5,9 +5,15 @@ from diffusers import StableDiffusionPipeline
 
 
 
-pipe1 = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
+# Model 1
+@st.cache_resource(show_spinner=False ,ttl=3600) 
+def get_model1():
+      model_id = "runwayml/stable-diffusion-v1-5"
+      pipe = StableDiffusionPipeline.from_pretrained(model_id)
+      return pipe
+  
+pipe1 =get_model1()
 
-pipe2 = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
 
 
 st.title("Stable Diffusion App")
