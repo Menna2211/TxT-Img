@@ -7,12 +7,12 @@ from diffusers import StableDiffusionPipeline
 
 # Model 1
 @st.cache_resource(show_spinner=False ,ttl=3600) 
-def get_model1():
+def get_model3():
       model_id = "runwayml/stable-diffusion-v1-5"
       pipe = StableDiffusionPipeline.from_pretrained(model_id)
       return pipe
   
-pipe1 =get_model1()
+pipe1 =get_model3()
 
 
 
