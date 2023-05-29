@@ -3,11 +3,15 @@ import torch
 import time
 from diffusers import StableDiffusionPipeline
 
+
 # Model 1
 @st.cache_resource(show_spinner=False ,ttl=3600) 
 def get_model1():
+      device = "cuda" if torch.cuda.is_available() else "cpu"
+      torch_dtype = torch.float16 if device == "cuda" else torch.float32
       model_id = "prompthero/openjourney"
-      pipe1 = StableDiffusionPipeline.from_pretrained(model_id)
+      pipe = StableDiffusionPipeline.from_pretrained(model_id , torch_dtype=torch_dtype)
+      pipe1 = pipe.to(device)
       return pipe1
   
 pipe1 =get_model1()
@@ -15,7 +19,10 @@ pipe1 =get_model1()
 # Model 2 
 @st.cache_resource(show_spinner=False ,ttl=3600) 
 def get_model2():
-    pipe2 = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    torch_dtype = torch.float16 if device == "cuda" else torch.float32
+    pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
+    pipe2 = pipe.to(device)
     return  pipe2
 
 pipe2 =get_model2()
