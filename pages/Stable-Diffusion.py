@@ -25,19 +25,19 @@ st.title("Stable Diffusion App")
 # Define the Streamlit app layout
 prompt = st.text_input("Write your sentence:")
 
-model = st.selectbox("Select a Model", ["Select a Model","Hugging-Face", "Github"])
-submit_button = st.button("Compute")
+models = st.selectbox("Select a Model", ["Select a Model","Hugging-Face", "Github"])
+submit_buttons = st.button("Compute")
 
 
-if model == "Select a Model" and not submit_button :
+if models == "Select a Model" and not submit_buttons :
   st.stop()
 
-elif model == "Select a Model" and  submit_button :
+elif models == "Select a Model" and  submit_buttons :
   st.warning('Warning.....!!,Plz..... Select a Model ', icon="⚠️")
 
 # Display the generated text
 
-if model == "Hugging-Face":
+if models == "Hugging-Face":
   progress_text = "Operation in progress. Please wait."
   bar = st.progress(0, text=progress_text)
   for percent_complete in range(100):
@@ -52,17 +52,17 @@ if model == "Hugging-Face":
   st.success('Congratulations task is done ', icon="✅")
   st.balloons()
 
-elif model == "Github":
+elif models == "Github":
   progress_text = "Operation in progress. Please wait."
   bar = st.progress(0, text=progress_text)
   for percent_complete in range(100):
-      generated_img=pipe2(prompt).images[0]
+      generated_img2=pipe2(prompt).images[0]
       time.sleep(0.1)
       bar.progress(percent_complete + 1, text=progress_text)
 
   # Display the uploaded image and its generated caption
   st.write("Generated Image:")
-  st.image(generated_img)
+  st.image(generated_img2)
   time.sleep(3)
   st.success('Congratulations task is done ', icon="✅")
   st.balloons()
