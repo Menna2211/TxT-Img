@@ -35,39 +35,31 @@ elif model == "Select a Model" and  submit_button :
 
 # Display the generated text
 if model == "Hugging-Face":
-    if prompt is not None :
-        # Use the pre-trained model to generate a caption for the uploaded image
-        progress_text = "Operation in progress. Please wait."
-        bar = st.progress(0, text=progress_text)
-        for percent_complete in range(100):
-            generated_img=pipe1(prompt).images[0]
-            time.sleep(0.1)
-            bar.progress(percent_complete + 1, text=progress_text)
+  progress_text = "Operation in progress. Please wait."
+  bar = st.progress(0, text=progress_text)
+  for percent_complete in range(100):
+      generated_img=pipe1(prompt).images[0]
+      time.sleep(0.1)
+      bar.progress(percent_complete + 1, text=progress_text)
 
-        # Display the uploaded image and its generated caption
-        st.write("Generated Image:")
-        st.image(generated_img)
-        time.sleep(5)
-        st.success('Congratulations task is done ', icon="✅")
-        st.balloons()
-     else:
-        st.error('Error...!!,Plz..... Upload an image' , icon="🚨")
+  # Display the uploaded image and its generated caption
+  st.write("Generated Image:")
+  st.image(generated_img)
+  time.sleep(5)
+  st.success('Congratulations task is done ', icon="✅")
+  st.balloons()
 
 elif model == "Github":
-    if prompt is not None :
-        # Use the pre-trained model to generate a caption for the uploaded image
-        progress_text = "Operation in progress. Please wait."
-        bar = st.progress(0, text=progress_text)
-        for percent_complete in range(100):
-            generated_img=pipe2(prompt).images[0]
-            time.sleep(0.1)
-            bar.progress(percent_complete + 1, text=progress_text)
+  progress_text = "Operation in progress. Please wait."
+  bar = st.progress(0, text=progress_text)
+  for percent_complete in range(100):
+      generated_img=pipe2(prompt).images[0]
+      time.sleep(0.1)
+      bar.progress(percent_complete + 1, text=progress_text)
 
-        # Display the uploaded image and its generated caption
-        st.write("Generated Image:")
-        st.image(generated_img)
-        time.sleep(5)
-        st.success('Congratulations task is done ', icon="✅")
-        st.balloons()
-     else:
-        st.error('Error...!!,Plz..... Upload an image' , icon="🚨")
+  # Display the uploaded image and its generated caption
+  st.write("Generated Image:")
+  st.image(generated_img)
+  time.sleep(5)
+  st.success('Congratulations task is done ', icon="✅")
+  st.balloons()
