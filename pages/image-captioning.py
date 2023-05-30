@@ -47,7 +47,7 @@ if model == "Select a Model" and not submit_button :
 elif model == "Select a Model" and  submit_button :
   st.warning('Warning.....!!,Plz..... Select a Model ', icon="⚠️")
 
-if model == "Hugging-Face":
+if model == "Hugging-Face" and  submit_button:
     if uploaded_file is not None :
         # Load the uploaded image
         image = Image.open(uploaded_file).convert('RGB')
@@ -70,7 +70,7 @@ if model == "Hugging-Face":
     else:
       st.error('Error...!!,Plz..... Upload an image' , icon="🚨")
 
-elif model == "Github":
+elif model == "Github" and  submit_button:
     if uploaded_file is not None :
         # Load the uploaded image
         im = Image.open(uploaded_file)
